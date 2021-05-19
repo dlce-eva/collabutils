@@ -30,16 +30,23 @@ setup(
         'attrs>=19.3',
         'clldutils>=3.5',
         'csvw',
-        'gspread>=3.7',
+        'pycldf',
     ],
     extras_require={
+        'googlesheets': ['gspread>=3.7'],
+        'owncloud': ['pyocclient', 'openpyxl'],
+        'zotero': ['pyzotero', 'pybtex'],
         'dev': ['flake8', 'wheel', 'twine'],
         'test': [
             'pytest>=4.3',
             'pytest-mock',
             'pytest-cov',
             'coverage>=4.2',
+            'gspread',
+            'pyocclient',
+            'openpyxl',
+            'pybtex',
+            'pyzotero',
         ],
     },
 )
-
