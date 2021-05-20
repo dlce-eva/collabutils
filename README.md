@@ -11,36 +11,16 @@ Utilities for collaborative curation of data - in particular for curating cross-
 
 ## Curating tabular data
 
-### With Google Sheets
-
-Install
-```shell
-pip install collabutils[googlesheets]
-```
+- [With Google Sheets](https://collabutils.readthedocs.io/en/latest/googlesheets.html)
+- [With OwnCloud](https://collabutils.readthedocs.io/en/latest/oc.html)
 
 
-### With OwnCloud
+## Curating lexical data
 
-Install
-```shell
-pip install collabutils[owncloud]
-```
-
-
-## Curating lexical data in EDICTOR
-
-FIXME
+- [With EDICTOR](https://collabutils.readthedocs.io/en/latest/edictor.html)
 
 
 ## Curating bibliographies
 
-### With Zotero
-
-Install
-```shell
-pip install collabutils[zotero]
-```
-
-## With Overleaf
-
-FIXME
+- [With Zotero](https://collabutils.readthedocs.io/en/latest/zotero.html)
+- With Overleaf: coming soon!

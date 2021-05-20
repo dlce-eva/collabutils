@@ -36,6 +36,7 @@ setup(
         'googlesheets': ['gspread>=3.7'],
         'owncloud': ['pyocclient', 'openpyxl'],
         'zotero': ['pyzotero', 'pybtex'],
+        'docs': ['sphinx', 'sphinx-autodoc-typehints', 'sphinx-rtd-theme'],
         'dev': ['flake8', 'wheel', 'twine'],
         'test': [
             'pytest>=4.3',
