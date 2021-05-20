@@ -1,3 +1,8 @@
+"""
+The `EDICTOR application <http://lingulist.de/edictor/>`_ is an online tool for creating,
+maintaining, and publishing etymological data which is stored in simple TSV format.
+This TSV format can be accessed in a somewhat configurable way via HTTP URLs.
+"""
 import pathlib
 import urllib.parse
 from urllib.request import urlretrieve

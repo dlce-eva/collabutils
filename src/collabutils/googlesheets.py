@@ -1,7 +1,4 @@
 """
-Accessing data in Google Sheets
--------------------------------
-
 Google Sheets provides a good platform to curate tabular data collaboratively. Thus, we
 can use it to work on input for CLDF datasets, such as language metadata. This module provides
 functionality to pull such data from Google Sheets, suitable for inclusion in `cldfbench download`

@@ -1,5 +1,10 @@
 # collabutils
 
+[![Build Status](https://github.com/dlce-eva/collabutils/workflows/tests/badge.svg)](https://github.com/dlce-eva/collabutils/actions?query=workflow%3Atests)
+[![Documentation Status](https://readthedocs.org/projects/collabutils/badge/?version=latest)](https://collabutils.readthedocs.io/en/latest/?badge=latest)
+[![PyPI](https://img.shields.io/pypi/v/collabutils.svg)](https://pypi.org/project/collabutils)
+
+
 Utilities for collaborative curation of data - in particular for curating cross-linguistic data via
 `cldfbench`.
 

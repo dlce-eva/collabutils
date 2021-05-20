@@ -1,3 +1,9 @@
+"""
+OwnCloud compatible cloud services (e.g. NextCloud) often offer good support for collaborative
+editing of tabular data in an online replica of Excel.
+
+Public read-only shares provide a simple way to access such data programmatically.
+"""
 import typing
 import pathlib
 import tempfile

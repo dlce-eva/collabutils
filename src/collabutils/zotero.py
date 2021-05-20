@@ -1,3 +1,20 @@
+"""
+Zotero provides a good platform to collaborate on bibliogrpahies.
+
+We support collaborative curation of bibliographical data as follows:
+
+- The data is curated in a shared Zotero library.
+- Items in this library are tagged for membership in the bibliographies of certain datasets, \
+  using tags of the form "dataset:<dataset-id>".
+- Items are optionally tagged with tags of the form "id:<dataset-id>:<local-id>" for local \
+  BibTeX keys in a specific dataset.
+
+An instance of :class:`Zotero` allows
+
+- seeding such libraries from a (possibly stub) BibTeX file via :meth:`Zotero.upload_bib`
+- downloading such libraries via :meth:`Zotero.download_bib`
+- deleting such libraries via :meth:`Zotero.delete_bib`
+"""
 import re
 import copy
 import pathlib
@@ -68,24 +85,16 @@ FIELDS_TO_ZOTERO = {
 
 class Zotero:
     """
-    We support collaborative curation of bibliographical data as follows:
+    A high-level Zotero API client. Low level communication with Zotero is done using the
+    `pyzotero` package.
 
-    - The data is curated in a shared Zotero library.
-    - Items in this library are tagged for membership in the bibliographies of certain datasets, \
-      using tags of the form "dataset:<dataset-id>".
-    - Items are optionally tagged with tags of the form "id:<dataset-id>:<local-id>" for local \
-      BibTeX keys in a specific dataset.
+    .. seealso:: `<https://pypi.org/project/Pyzotero/>`_
     """
     def __init__(self, libid, apikey, group=True):
         """
-        A high-level Zotero API client. Low level communication with Zotero is done using the
-        `pyzotero` package.
-
         :param libid: Numeric ID of the Zotero library
         :param apikey: API key with read/write permissions for the library
         :param group: Flag signaling whether we are dealing with a group or user library
-
-        .. seealso:: `<https://pypi.org/project/Pyzotero/>`_
         """
         self.api = API(libid, 'group' if group else 'user', apikey)
         self._item_templates = {}
