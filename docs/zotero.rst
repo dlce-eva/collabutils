@@ -11,6 +11,7 @@ Zotero
 
         pip install collabutils[zotero]
 
+
 .. automodule:: collabutils.zotero
     :members:
 

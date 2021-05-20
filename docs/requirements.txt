@@ -1,3 +1,9 @@
 sphinx-autodoc-typehints
 sphinx-rtd-theme
+gspread
+pyzotero
+pybtex
+pyocclient
+openpyxl
+
 
