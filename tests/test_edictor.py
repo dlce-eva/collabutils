@@ -13,5 +13,5 @@ def test_fetch(mocker, tmp_path):
     mocker.patch(
         'collabutils.edictor.urlretrieve',
         lambda u, p: pathlib.Path(p).write_text('test', encoding='utf8'))
-    fetch('ds', outdir=tmp_path)
-    assert tmp_path.joinpath('ds.sqlite').exists()
+    fetch('ds', out=tmp_path)
+    assert tmp_path.joinpath('ds.tsv').exists()

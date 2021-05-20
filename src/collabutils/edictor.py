@@ -3,6 +3,7 @@ The `EDICTOR application <http://lingulist.de/edictor/>`_ is an online tool for 
 maintaining, and publishing etymological data which is stored in simple TSV format.
 This TSV format can be accessed in a somewhat configurable way via HTTP URLs.
 """
+import typing
 import pathlib
 import urllib.parse
 from urllib.request import urlretrieve
@@ -28,14 +29,26 @@ def get_url(
 
 
 def fetch(
-        dataset,
-        remote_dbase=None,
-        concepts=None,
-        languages=None,
-        columns=None,
-        base_url="http://lingulist.de/edictor",
-        outdir='.',
+        dataset: str,
+        remote_dbase: typing.Optional[str] = None,
+        concepts: typing.Optional[typing.List[str]] = None,
+        languages: typing.Optional[typing.List[str]] = None,
+        columns: typing.Optional[typing.List[str]] = None,
+        base_url: str = "http://lingulist.de/edictor",
+        out: typing.Optional[typing.Union[pathlib.Path, str]] = None,
 ):
+    """
+    Retrieve the TSV data file for a dataset curated with EDICTOR.
+
+    :param dataset: Name of the dataset in EDICTOR
+    :param remote_dbase: Name of the database file on EDICTOR (if different than dataset name)
+    :param concepts: List of concepts to include in the download (defaults to all)
+    :param languages: List of languages to include in the download (defaults to all)
+    :param columns: List of columns to include in the download (defaults to all)
+    :param base_url:
+    :param out: Path to which to save the data (defaults to './<dataset>.tsv')
+    :return:
+    """
     remote_dbase = remote_dbase or (dataset + '.sqlite')
     url = get_url(
         base_url=base_url,
@@ -46,4 +59,10 @@ def fetch(
         columns=columns,
         remote_dbase=remote_dbase,
     )
-    return urlretrieve(url, str(pathlib.Path(outdir) / remote_dbase))
+    if out:
+        out = pathlib.Path(out)
+        if out.is_dir():
+            out = out / '{}.tsv'.format(dataset)
+    else:
+        out = pathlib.Path('{}.tsv'.format(dataset))
+    return urlretrieve(url, str(out))
