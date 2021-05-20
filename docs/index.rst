@@ -3,8 +3,16 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to collabutils's documentation!
-=======================================
+collabutils API documentation
+=============================
+
+- `collabutils @ GitHub <https://github.com/dlce-eva/collabutils>`_
+- `collabutils @ PyPI <https://pypi/project/collabutils>`_
+- `Issue tracker <https://github.com/dlce-eva/collabutils/issues>`_
+
+For installation instructions and an overview, see
+`the README <https://github.com/dlce-eva/collabutils/blob/master/README.md>`_
+
 
 .. toctree::
    :maxdepth: 2
