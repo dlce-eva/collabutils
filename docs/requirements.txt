@@ -1,6 +1,6 @@
 sphinx-autodoc-typehints
 sphinx-rtd-theme
-gspread
+gspread==3.7
 pyzotero
 pybtex
 pyocclient
