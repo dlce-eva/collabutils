@@ -19,9 +19,10 @@
   ```
 
 - Update the version number, by removing the trailing `.dev0` in:
-  - `setup.py`
+  - `setup.cfg`
   - `src/collabutils/__init__.py`
   - `docs/conf.py`
+  - `CHANGELOG.md`
 
 - Create the release commit:
   ```shell
@@ -33,13 +34,10 @@
   git tag -a v<VERSION> -m"<VERSION> release"
   ```
 
-- Release to PyPI (see https://github.com/di/markdown-description-example/issues/1#issuecomment-374474296):
+- Release to PyPI:
   ```shell
   rm dist/*
-  python setup.py sdist
-  twine upload dist/*
-  rm dist/*
-  python setup.py bdist_wheel
+  python -m build -n
   twine upload dist/*
   ```
 
@@ -50,7 +48,7 @@
   ```
 
 - Change version for the next release cycle, i.e. incrementing and adding .dev0
-  - `setup.py`
+  - `setup.cfg`
   - `src/collabutils/__init__.py`
   - `docs/conf.py`
 

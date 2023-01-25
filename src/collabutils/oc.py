@@ -62,6 +62,8 @@ class Spreadsheet(SharedSpreadsheetMixin):
             outdir: typing.Optional[typing.Union[pathlib.Path, str]] = '.',
             **kw,
     ):
+        import shutil
+
         def _excel_value(x):
             if x is None:
                 return ""
@@ -75,9 +77,10 @@ class Spreadsheet(SharedSpreadsheetMixin):
         with tempfile.TemporaryDirectory() as tmp:
             tmppath = str(pathlib.Path(tmp) / self.file.name)
             self.client.get_file(self.file.path, tmppath)
-
+            shutil.copy(tmppath, 'lexibank.xlsx')
             outdir = outdir or self
             wb = openpyxl.load_workbook(tmppath, data_only=True)
+            print(wb.sheetnames)
             for i, sname in enumerate(wb.sheetnames, start=1):
                 if sheets is None or (sname in sheets):
                     fname = 'sheet_{}.csv'.format(i) if sheets is None else sheets[sname]
